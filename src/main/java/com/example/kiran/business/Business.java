@@ -1,7 +1,13 @@
 package com.example.kiran.business;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import com.example.kiran.address.Address;
 
 @Entity
 public class Business {
