@@ -1,31 +1,39 @@
 # kcp
-
--- Table: public.business
-
--- DROP TABLE public.business;
+docker pull postgres
+docker run --name kcpdb1 -e POSTGRES_PASSWORD=kiran -p 32768:5432 -d postgres
 
 CREATE TABLE public.business
 (
-    id text COLLATE pg_catalog."default" NOT NULL,
-    businessname text COLLATE pg_catalog."default" NOT NULL,
-    businesstype text COLLATE pg_catalog."default"
+    business_id text COLLATE pg_catalog."default" NOT NULL,
+    business_name text COLLATE pg_catalog."default" NOT NULL,
+    business_type text COLLATE pg_catalog."default",
+    CONSTRAINT businessid_pk PRIMARY KEY (business_id)
 )
-WITH (
-    OIDS = FALSE
+
+    
+INSERT INTO business (business_id, business_name, business_type) VALUES ('1', 'cat', 'Large')
+
+CREATE TABLE public.address
+(
+    address_id text COLLATE pg_catalog."default" NOT NULL,
+    city text COLLATE pg_catalog."default" NOT NULL,
+    state text COLLATE pg_catalog."default",
+    business_id text COLLATE pg_catalog."default",
+    CONSTRAINT address_id_pk PRIMARY KEY (address_id),
+    CONSTRAINT "business_id_FK" FOREIGN KEY (business_id)
+        REFERENCES public.business (business_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 )
-TABLESPACE pg_default;
 
-ALTER TABLE public.business
-    OWNER to kiran;
-    
-    
-    
-INSERT INTO business (id, businessName, businessType) VALUES ('2', 'cat', 'Large');
+INSERT INTO address (address_id, city, state, business_id) VALUES ('20', 'Wilmington', 'DE', 1)
+INSERT INTO address (address_id, city, state, business_id)  VALUES ('21', 'Mooresville', 'NC', 1)
 
+mvn clean
+mvn -U install
+mvn eclipse:eclipse
 
 
 
-CREATE TABLE public.address ( id text COLLATE pg_catalog."default" NOT NULL, city text COLLATE pg_catalog."default" NOT NULL, state text COLLATE pg_catalog."default" ) WITH ( OIDS = FALSE ) TABLESPACE pg_default;
 
-INSERT INTO address (id, city, state, businessid) VALUES ('20', 'Wilmington', 'DE', 2);
-INSERT INTO address (id, city, state, businessid) VALUES ('21', 'Mooresville', 'NC', 2);
+
