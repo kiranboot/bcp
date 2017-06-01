@@ -29,6 +29,10 @@ CREATE TABLE public.address
 INSERT INTO address (address_id, city, state, business_id) VALUES ('20', 'Wilmington', 'DE', 1)
 INSERT INTO address (address_id, city, state, business_id)  VALUES ('21', 'Mooresville', 'NC', 1)
 
+mvn clean
+mvn -U install
+mvn eclipse:eclipse
+
 
 
 
