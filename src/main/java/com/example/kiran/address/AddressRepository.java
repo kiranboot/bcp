@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AddressRepository extends CrudRepository<Address, String> {
 
-	public List<Address> findByBusinessid(String id);
+	public List<Address> findByBusinessId(String id);
 
 }

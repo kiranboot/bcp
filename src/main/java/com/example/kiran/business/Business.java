@@ -12,40 +12,42 @@ import com.example.kiran.address.Address;
 @Entity
 public class Business {
 
-
 	@Id
-	private String id;
-	private String businessname;
-	private String businesstype;
-	
+	private String businessId;
+	private String businessName;
+	private String businessType;
+
+	public String getBusinessId() {
+		return businessId;
+	}
+
+	public void setBusinessId(String businessId) {
+		this.businessId = businessId;
+	}
+
+	public String getBusinessName() {
+		return businessName;
+	}
+
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+	public String getBusinessType() {
+		return businessType;
+	}
+
+	public void setBusinessType(String businessType) {
+		this.businessType = businessType;
+	}
+
 	public Business() {
 	}
-	
-	public Business(String id, String businessname, String businesstype) {
-		this.id = id;
-		this.businessname = businessname;
-		this.businesstype = businesstype;
-	}
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getBusinessname() {
-		return businessname;
-	}
-	public void setBusinessname(String businessname) {
-		this.businessname = businessname;
-	}
-	public String getBusinesstype() {
-		return businesstype;
-	}
-	public void setBusinesstype(String businesstype) {
-		this.businesstype = businesstype;
-	}
 
-
+	public Business(String businessId, String businessName, String businessType) {
+		this.businessId = businessId;
+		this.businessName = businessName;
+		this.businessType = businessType;
+	}
 
 }

@@ -37,7 +37,7 @@ public class BusinessService {
 	
 	public Business getBusiness(String id) {
 		Business b = businessRepository.findOne(id);
-		List<Address> addressList = addressRepository.findByBusinessid(id);
+		List<Address> addressList = addressRepository.findByBusinessId(id);
 		return b;
 	}
 	

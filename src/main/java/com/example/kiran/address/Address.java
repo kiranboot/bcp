@@ -8,29 +8,34 @@ public class Address {
 
 
 	@Id
-	private String id;
+	private String addressId;
 	private String city;
 	private String state;
-	private String businessid;
+	private String businessId;
 	
-	public String getBusinessid() {
-		return businessid;
-	}
-
-	public void setBusinessid(String businessid) {
-		this.businessid = businessid;
-	}
-
 	public Address() {
 	}
 
-	public String getId() {
-		return id;
+
+	public String getAddressId() {
+		return addressId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
 	}
+
+
+	public String getBusinessId() {
+		return businessId;
+	}
+
+
+	public void setBusinessId(String businessId) {
+		this.businessId = businessId;
+	}
+
 
 	public String getCity() {
 		return city;
