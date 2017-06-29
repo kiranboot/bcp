@@ -34,6 +34,5 @@ mvn -U install
 mvn eclipse:eclipse
 
 
-
-
+copy address, business, application.properties
 
